@@ -6,7 +6,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {DashboardComponentComponent} from './dashboard-component/dashboard-component.component';
 import { ButtonComponent } from './button/button.component';
-import { FieldComponent } from './field/field.component';
 import { createCustomElement } from '@angular/elements';
 
 @NgModule({

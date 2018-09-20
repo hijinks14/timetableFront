@@ -83,10 +83,11 @@ export class AppComponent {
         console.log(data);
         console.log("OK");
           this.postGetAllCallReg('registrationGetAll', null);
+          this.modalOpen = !this.modalOpen;
       },
       error => {
-        alert("Unable to send. Please check all data and try again");
-        console.log(JSON.stringify(error.json()));
+        alert("Unable to send data. "+error.error.message);
+        console.log(error);          
       }
       )
   }
@@ -109,7 +110,7 @@ export class AppComponent {
   }
 
   add() {
-    this.modalOpen = !this.modalOpen;
+    if(this.newAttribute.n == null){ this.newAttribute.n = ""; }
     let data = {
         "note":this.newAttribute.n,
         "logDate": this.newAttribute.d,
@@ -118,6 +119,10 @@ export class AppComponent {
         "hours":this.newAttribute.h
     }; 
     this.postCall('registrationPost', data);
+    this.newAttribute.n=null;
+    this.newAttribute.d=null;
+    this.newAttribute.c=null;
+    this.newAttribute.h=null; 
   }
     
   cancel() {
